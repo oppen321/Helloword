@@ -16,5 +16,5 @@ make menuconfig
 编译新版Sing-box和hysteria，尽量使用golang版本1.22以上版本 ，可以用以下命令
 ```yaml
 rm -rf feeds/packages/lang/golang
-git clone https://github.com/kenzok8/golang feeds/packages/lang/golang
+git clone https://github.com/oppen321/golang feeds/packages/lang/golang
 ```
