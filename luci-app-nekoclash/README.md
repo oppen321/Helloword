@@ -41,15 +41,6 @@ Depedencies
   - ` kmod-tun `
   - ` xtables-nft `
 
-# Run Sing-box with iptables.
----
-
-```bash
-wget -O /etc/neko/core/start.sh   https://raw.githubusercontent.com/Thaolga/luci-app-nekoclash/tmp/start.sh  && chmod 0755  /etc/neko/core/start.sh
-
-```
-## Replace it yourself, not integrated into the plugin.
-
 # OpenWrt One-Click Installation Script
 ---
 
@@ -57,6 +48,15 @@ wget -O /etc/neko/core/start.sh   https://raw.githubusercontent.com/Thaolga/luci
 wget -O /root/nekoclash.sh https://raw.githubusercontent.com/Thaolga/luci-app-nekoclash/main/nekoclash.sh && chmod 0755 /root/nekoclash.sh && /root/nekoclash.sh
 
 ```
+
+# Run Sing-box with iptables.
+---
+
+```bash
+wget -O /etc/neko/core/start.sh https://raw.githubusercontent.com/Thaolga/luci-app-nekoclash/tmp/start.sh && chmod 0755 /etc/neko/core/start.sh
+
+```
+## Replace it yourself, not integrated into the plugin.
 
 # OpenWrt Compilation
 ---
@@ -78,12 +78,12 @@ make package/luci-app-nekoclash/{clean,compile} V=s
 ---
 <details><summary>Home</summary>
  <p>
-
+ <img src="https://raw.githubusercontent.com/Thaolga/luci-app-nekoclash/tmp/image_2024-09-03_16-50-26.png" alt="home">
  </p>
 </details>
 
  <details><summary>Dasboard</summary>
  <p>
-
+  <img src="https://raw.githubusercontent.com/Thaolga/luci-app-nekoclash/tmp/image_2024-09-03_16-50-53.png" alt="home">
  </p>
 </details>
