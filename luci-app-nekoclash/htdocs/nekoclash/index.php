@@ -527,22 +527,9 @@ function createStartScript() {
     }
 }
 
-function formatLogLine($line) {
-    $pattern = '/\[(\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2})\]/';
-    if (preg_match($pattern, $line, $matches)) {
-        $timestamp = $matches[1];
-        $formattedTimestamp = date('Y-m-d H:i:s', strtotime($timestamp));
-        return str_replace($timestamp, $formattedTimestamp, $line);
-    }
-    return $line;
-}
-
 function readRecentLogLines($filePath, $lines = 1000) {
     $command = "tail -n $lines " . escapeshellarg($filePath);
-    $logContent = shell_exec($command);
-    $logLines = explode("\n", $logContent);
-    $formattedLines = array_map('formatLogLine', $logLines);
-    return implode("\n", $formattedLines);
+    return shell_exec($command);
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -726,36 +713,17 @@ $singboxStartLogContent = readLogFile($singboxStartLogFile);
         <table class="table table-borderless mb-2">
             <tbody>
                 <tr>
-                    <td>
+                    <td>                 
                         <div class="row mb-2">
-                            <div class="col">
-                                <input type="text" id="playlistLink" class="form-control" placeholder="Enter custom playlist link">
-                            </div>
-                            <div class="col-auto">
-                                <button id="loadPlaylistButton" class="btn btn-primary">Load Playlist</button>
-                            </div>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <div class="row mb-2">
-                            <div class="col">
+                            <div class="col">             
                                 <input type="text" id="city-input" class="form-control" placeholder="e.g. Beijing">
                             </div>
                             <div class="col-auto">
                                 <button onclick="saveCity()" class="btn btn-success">Save City</button>
-                            </div>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td>               
-                        <button id="resetPlaylistButton" class="btn btn-warning">Restore Default Playlist</button>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+                        </td>
+                    </tr>
+               </tbody>
+         </table>
     </div>
 
 <script>
