@@ -83,10 +83,8 @@ if (isset($_POST['set_auto_update'])) {
     <link href="./assets/css/bootstrap.min.css" rel="stylesheet">
     <link href="./assets/theme/<?php echo $neko_theme ?>" rel="stylesheet">
     <link href="./assets/css/custom.css" rel="stylesheet">
-    <link href="./assets/theme/NavajoWhite.css" rel="stylesheet">
     <style>
         body.container-bg {
-            background-color: #FFDEAD;
             color: #000;
             text-align: center;
             margin: 0;
