@@ -6,6 +6,10 @@
     "dns": {
         "servers": [
             {
+                "tag": "dns_block",
+                "address": "rcode://success"
+            },
+            {
                 "tag": "dns_local",
                 "address": [
                     "223.5.5.5",
@@ -60,6 +64,14 @@
                     "AAAA"
                 ],
                 "server": "dns_proxy"
+            },
+            {
+                "rule_set": [
+                    "ads"
+                ],
+                "server": "dns_block",
+                "disable_cache": true,
+                "rewrite_ttl": 0
             },
             {
                 "rule_set": [
@@ -160,85 +172,39 @@
                 "🇹🇼 台湾节点",
                 "🇯🇵 日本节点",
                 "🇰🇷 韩国节点",
-                "🇸🇬 新加坡节点",
+                "🇸🇬 狮城节点",
                 "🇺🇸 美国节点",
-                "🐸 手动切换1",
-                "🐸 手动切换2",
-                "🐸 手动切换3",
-                "🐸 手动切换4",
-                "🐸 手动切换5",
-                "🆓 免费节点"
+                "🌀 手动切换1",
+                "🌀 手动切换2",
+                "🐸 其他地区"
             ]
         },
         {
-            "tag": "🐸 手动切换1",
+            "tag": "🌀 手动切换1",
             "type": "selector",
             "use_all_providers": true,
             "includes": [
-                ""
-            ]
+
+            ],
+            "excludes": "(?i)网站|地址|剩余|过期|时间|有效|套餐|到期"
         },
         {
-            "tag": "🐸 手动切换2",
+            "tag": "🌀 手动切换2",
             "type": "selector",
             "use_all_providers": true,
             "includes": [
-                ""
-            ]
+
+            ],
+            "excludes": "(?i)网站|地址|剩余|过期|时间|有效|套餐|到期"
         },
         {
-            "tag": "🐸 手动切换3",
+            "tag": "🐸 其他地区",
             "type": "selector",
             "use_all_providers": true,
             "includes": [
-                ""
-            ]
-        },
-        {
-            "tag": "🐸 手动切换4",
-            "type": "selector",
-            "use_all_providers": true,
-            "includes": [
-                ""
-            ]
-        },
-        {
-            "tag": "🐸 手动切换5",
-            "type": "selector",
-            "use_all_providers": true,
-            "includes": [
-                ""
-            ]
-        },
-        {
-            "tag": "♻️ 自动选择",
-            "type": "urltest",
-            "url": "http://www.google-analytics.com/generate_204",
-            "tolerance": 50,
-            "outbounds": [
-                "🇰🇷 韩国自动",
-                "🇰🇷 韩国节点",
-                "🇺🇸 美国节点",
-                "🇸🇬 新加坡节点"
-            ]
-        },
-        {
-            "tag": "🤖 人工智能",
-            "type": "selector",
-            "outbounds": [
-                "🚀 节点选择",
-                "🇭🇰 香港节点",
-                "🇹🇼 台湾节点",
-                "🇯🇵 日本节点",
-                "🇰🇷 韩国节点",
-                "🇸🇬 新加坡节点",
-                "🇺🇸 美国节点",
-                "🐸 手动切换1",
-                "🐸 手动切换2",
-                "🐸 手动切换3",
-                "🐸 手动切换4",
-                "🐸 手动切换5"
-            ]
+
+            ],
+            "excludes": "(?i)🇭🇰|🇯🇵|🇺🇸|🇸🇬|🇹🇼|🇰🇷|港|hk|hongkong|台|tw|taiwan|日|jp|japan|新|sg|singapore|美|us|unitedstates|KR|KOREA|Korea"
         },
         {
             "tag": "📹 YouTube",
@@ -249,13 +215,11 @@
                 "🇹🇼 台湾节点",
                 "🇯🇵 日本节点",
                 "🇰🇷 韩国节点",
-                "🇸🇬 新加坡节点",
+                "🇸🇬 狮城节点",
                 "🇺🇸 美国节点",
-                "🐸 手动切换1",
-                "🐸 手动切换2",
-                "🐸 手动切换3",
-                "🐸 手动切换4",
-                "🐸 手动切换5"
+                "🌀 手动切换1",
+                "🌀 手动切换2",
+                "🐸 其他地区"
             ]
         },
         {
@@ -267,13 +231,11 @@
                 "🇹🇼 台湾节点",
                 "🇯🇵 日本节点",
                 "🇰🇷 韩国节点",
-                "🇸🇬 新加坡节点",
+                "🇸🇬 狮城节点",
                 "🇺🇸 美国节点",
-                "🐸 手动切换1",
-                "🐸 手动切换2",
-                "🐸 手动切换3",
-                "🐸 手动切换4",
-                "🐸 手动切换5"
+                "🌀 手动切换1",
+                "🌀 手动切换2",
+                "🐸 其他地区"
             ]
         },
         {
@@ -285,13 +247,27 @@
                 "🇹🇼 台湾节点",
                 "🇯🇵 日本节点",
                 "🇰🇷 韩国节点",
-                "🇸🇬 新加坡节点",
+                "🇸🇬 狮城节点",
                 "🇺🇸 美国节点",
-                "🐸 手动切换1",
-                "🐸 手动切换2",
-                "🐸 手动切换3",
-                "🐸 手动切换4",
-                "🐸 手动切换5"
+                "🌀 手动切换1",
+                "🌀 手动切换2",
+                "🐸 其他地区"
+            ]
+        },
+        {
+            "tag": "🤖 人工智能",
+            "type": "selector",
+            "outbounds": [
+                "🚀 节点选择",
+                "🇭🇰 香港节点",
+                "🇹🇼 台湾节点",
+                "🇯🇵 日本节点",
+                "🇰🇷 韩国节点",
+                "🇸🇬 狮城节点",
+                "🇺🇸 美国节点",
+                "🌀 手动切换1",
+                "🌀 手动切换2",
+                "🐸 其他地区"
             ]
         },
         {
@@ -327,102 +303,6 @@
             ]
         },
         {
-            "tag": "📲 电报消息",
-            "type": "selector",
-            "outbounds": [
-                "🚀 节点选择",
-                "🐸 手动切换1",
-                "🐸 手动切换2",
-                "🐸 手动切换3",
-                "🐸 手动切换4",
-                "🐸 手动切换5"
-            ]
-        },
-        {
-            "tag": "🆓 免费节点",
-            "type": "vless",
-            "server": "example.com",
-            "server_port": 443,
-            "uuid": "{uuid}",
-            "network": "tcp",
-            "tls": {
-                "enabled": true,
-                "server_name": "example.com",
-                "insecure": false
-            },
-            "transport": {
-                "type": "ws",
-                "path": "/?ed=2048",
-                "headers": {
-                    "Host": "example.com"
-                }
-            }
-        },
-        {
-            "tag": "🇰🇷 韩国自动",
-            "type": "urltest",
-            "url": "http://www.google-analytics.com/generate_204",
-            "tolerance": 50,
-            "use_all_providers": true,
-            "includes": [
-                "🇰🇷|韩国|KR|KOREA|Korea"
-            ]
-        },
-        {
-            "tag": "🇭🇰 香港节点",
-            "type": "urltest",
-            "tolerance": 50,
-            "use_all_providers": true,
-            "includes": [
-                "🇭🇰|香港|HK|HONGKONG|HongKong"
-            ]
-        },
-        {
-            "tag": "🇹🇼 台湾节点",
-            "type": "urltest",
-            "tolerance": 50,
-            "use_all_providers": true,
-            "includes": [
-                "🇹🇼|台湾|TW|TAIWAN|Taiwan"
-            ]
-        },
-        {
-            "tag": "🇯🇵 日本节点",
-            "type": "urltest",
-            "tolerance": 50,
-            "use_all_providers": true,
-            "includes": [
-                "🇯🇵|日本|JP|JAPAN|Japan"
-            ]
-        },
-        {
-            "tag": "🇰🇷 韩国节点",
-            "type": "urltest",
-            "tolerance": 50,
-            "use_all_providers": true,
-            "includes": [
-                "🇰🇷|韩国|KR|KOREA|Korea"
-            ]
-        },
-        {
-            "tag": "🇸🇬 新加坡节点",
-            "type": "urltest",
-            "tolerance": 50,
-            "use_all_providers": true,
-            "includes": [
-                "🇸🇬|新加坡|SG|SINGAPORE|Singapore"
-            ]
-        },
-        {
-            "tag": "🇺🇸 美国节点",
-            "type": "urltest",
-            "tolerance": 50,
-            "use_all_providers": true,
-            "includes": [
-                "🇺🇸|美国|US|UNITED STATES|United States"
-            ]
-        },
-        {
             "tag": "🇨🇳 直连域名",
             "type": "selector",
             "outbounds": [
@@ -447,24 +327,33 @@
             ]
         },
         {
-            "tag": "🔒 私有网络",
+            "tag": "📲 电报消息",
+            "type": "selector",
+            "outbounds": [
+                "🚀 节点选择",
+                "🇭🇰 香港节点",
+                "🇹🇼 台湾节点",
+                "🇯🇵 日本节点",
+                "🇰🇷 韩国节点",
+                "🇸🇬 狮城节点",
+                "🇺🇸 美国节点",
+                "🌀 手动切换1",
+                "🌀 手动切换2",
+                "🐸 其他地区"
+            ]
+        },
+        {
+            "tag": "🖥️ 直连软件",
             "type": "selector",
             "outbounds": [
                 "🎯 全球直连"
             ]
         },
         {
-            "tag": "🛑 广告拦截",
+            "tag": "🔒 私有网络",
             "type": "selector",
             "outbounds": [
-                "REJECT"
-            ]
-        },
-        {
-            "tag": "🎯 全球直连",
-            "type": "selector",
-            "outbounds": [
-                "DIRECT"
+                "🎯 全球直连"
             ]
         },
         {
@@ -476,17 +365,23 @@
                 "🇹🇼 台湾节点",
                 "🇯🇵 日本节点",
                 "🇰🇷 韩国节点",
-                "🇸🇬 新加坡节点",
+                "🇸🇬 狮城节点",
                 "🇺🇸 美国节点",
-                "🆓 免费节点"
+                "🐸 其他地区"
             ]
         },
         {
-            "tag": "🐟 漏网之鱼",
+            "tag": "🎯 全球直连",
             "type": "selector",
             "outbounds": [
-                "🚀 节点选择",
-                "🎯 全球直连"
+                "DIRECT"
+            ]
+        },
+        {
+            "tag": "🛑 广告拦截",
+            "type": "selector",
+            "outbounds": [
+                "REJECT"
             ]
         },
         {
@@ -503,32 +398,101 @@
             "outbounds": [
                 "DIRECT",
                 "REJECT",
-                "🇰🇷 韩国自动",
                 "🇭🇰 香港节点",
                 "🇹🇼 台湾节点",
                 "🇯🇵 日本节点",
                 "🇰🇷 韩国节点",
-                "🇸🇬 新加坡节点",
+                "🇸🇬 狮城节点",
                 "🇺🇸 美国节点",
-                "🆓 免费节点"
+                "🐸 其他地区"
             ]
         },
         {
             "tag": "dns-out",
             "type": "dns"
+        },
+        {
+            "tag": "🐟 漏网之鱼",
+            "type": "selector",
+            "outbounds": [
+                "🚀 节点选择",
+                "🎯 全球直连",
+                "🐸 其他地区",
+                "🌀 手动切换1",
+                "🌀 手动切换2"
+            ]
+        },
+        {
+            "tag": "♻️ 自动选择",
+            "type": "urltest",
+            "url": "http://www.google-analytics.com/generate_204",
+            "tolerance": 50,
+            "use_all_providers": true,
+            "includes": [
+                "🇭🇰|🇯🇵|🇺🇸|🇸🇬|🇹🇼|🇰🇷|港|hk|hongkong|台|tw|taiwan|日|jp|japan|新|sg|singapore|美|us|unitedstates|KR|KOREA|Korea"
+            ]
+        },
+        {
+            "tag": "🇭🇰 香港节点",
+            "type": "selector",
+            "use_all_providers": true,
+            "includes": [
+                "🇭🇰|香港|HK|HONGKONG|HongKong"
+            ]
+        },
+        {
+            "tag": "🇹🇼 台湾节点",
+            "type": "selector",
+            "use_all_providers": true,
+            "includes": [
+                "🇹🇼|台湾|TW|TAIWAN|Taiwan"
+            ]
+        },
+        {
+            "tag": "🇯🇵 日本节点",
+            "type": "selector",
+            "use_all_providers": true,
+            "includes": [
+                "🇯🇵|日本|JP|JAPAN|Japan"
+            ]
+        },
+        {
+            "tag": "🇰🇷 韩国节点",
+            "type": "selector",
+            "use_all_providers": true,
+            "includes": [
+                "🇰🇷|KR|KOREA|Korea"
+            ]
+        },
+        {
+            "tag": "🇸🇬 狮城节点",
+            "type": "selector",
+            "use_all_providers": true,
+            "includes": [
+                "🇸🇬|新加坡|SG|SINGAPORE|Singapore"
+            ]
+        },
+        {
+            "tag": "🇺🇸 美国节点",
+            "type": "selector",
+            "use_all_providers": true,
+            "includes": [
+                "🇺🇸|美国|US|UNITED STATES|United States"
+            ]
         }
     ],
     "outbound_providers": [
         {
-            "tag": "🛫 1",
+            "tag": "🛫 ",
             "type": "remote",
-            "download_url": "机场链接",
+            "download_url": "https://example.com/xxx/xxx&flag=clash",
             "path": "./proxy/1.yaml",
             "download_interval": "24h",
             "download_ua": "clash.meta",
             "includes": [
-                ""
+
             ],
+            "excludes": "(?i)网站|地址|剩余|过期|时间|有效|套餐|到期",
             "healthcheck_url": "https://www.gstatic.com/generate_204",
             "healthcheck_interval": "10m"
         }
@@ -542,15 +506,33 @@
                 "outbound": "dns-out"
             },
             {
-                "clash_mode": [
-                    "Direct"
+                "domain_suffix": [
+                    "linux.do",
+                    "ajay.app",
+                    "returnyoutubedislikeapi.com"
                 ],
+                "outbound": "🪜 代理域名"
+            },
+            {
+                "domain_suffix": [
+                    "oaifree.com",
+                    "guangbomi.com",
+                    "bootcss.com"
+                ],
+                "outbound": "🇨🇳 直连域名"
+            },
+            {
+                "protocol": [
+                    "quic"
+                ],
+                "outbound": "REJECT"
+            },
+            {
+                "clash_mode": "Direct",
                 "outbound": "DIRECT"
             },
             {
-                "clash_mode": [
-                    "Global"
-                ],
+                "clash_mode": "Global",
                 "outbound": "GLOBAL"
             },
             {
@@ -558,6 +540,18 @@
                     "ads"
                 ],
                 "outbound": "🛑 广告拦截"
+            },
+            {
+                "rule_set": [
+                    "networktest"
+                ],
+                "outbound": "📈 网络测试"
+            },
+            {
+                "rule_set": [
+                    "applications"
+                ],
+                "outbound": "🖥️ 直连软件"
             },
             {
                 "rule_set": [
@@ -660,6 +654,13 @@
                 "format": "binary",
                 "path": "./rules/fakeip-filter.srs",
                 "url": "https://mirror.ghproxy.com/https://github.com/DustinWin/ruleset_geodata/releases/download/sing-box-ruleset/fakeip-filter.srs"
+            },
+            {
+                "tag": "applications",
+                "type": "remote",
+                "format": "binary",
+                "path": "./rules/applications.srs",
+                "url": "https://fastly.jsdelivr.net/gh/DustinWin/ruleset_geodata@sing-box-ruleset/applications.srs"
             },
             {
                 "tag": "geosite-youtube",
