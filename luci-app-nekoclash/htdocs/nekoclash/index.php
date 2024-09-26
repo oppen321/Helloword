@@ -40,9 +40,8 @@ $neko_status=exec("uci -q get neko.cfg.enabled");
     </div>
     <div class="container text-left p-3">
     <div class="container container-bg border border-3 rounded-4 col-12 mb-4">
-    <h2 class="text-center p-2" style="margin-top: -15px; margin-bottom: 5px;">Running Status</h2>
-    <table class="table table-borderless mb-2">
-        <div class="container container-bg border border-3 rounded-4 col-12 mb-4">
+    <h2 class="text-center p-2" style="margin-top: -15px; margin-bottom: 5px;">NekoClash</h2>
+    <div style="border: 1px solid black; padding: 10px; ">
    <br>
 <?php
 $translate = [
@@ -72,54 +71,42 @@ $lang = $_GET['lang'] ?? 'en';
     <link rel="preconnect" href="https://qqwry.api.skk.moe">
     <link rel="preconnect" href="https://d.skk.moe">
     <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.6;
+        }
         .status {
             display: flex;
-            align-items: center; 
-            justify-content: center; 
-            text-align: center; 
-            flex-direction: column; 
-            height: 80px;
+            align-items: center;
+            justify-content: center;
+            text-align: left;
+            flex-direction: row;
+            height: 50px;
+            letter-spacing: 0.5px;
         }
-
         .img-con {
-            margin-bottom: 1rem; 
+            margin-right: 3rem;
         }
-
         .img-con img {
-            width: 65px; 
-            height: auto; 
+            width: 80px;
+            height: auto;
         }
-
-        .green {
-            font-size: .9rem; 
-            color: #2dce89; 
-        }
-
-        .red {
-            font-size: .9rem; 
-            color: #fb6340; 
-        }
-
-        .yellow {
-            font-size: .9rem; 
-            color: #fb9a05; 
-        }
-
         .block {
-            font-size: .8125rem; 
-            font-weight: 600; 
-            color: #8898aa; 
-            line-height: 1.8em; 
-            margin: 0; 
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
-
         .ip-address {
-            color: #2dce89; 
-            margin-bottom: 0.5rem; 
+            color: #2dce89;
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin: 0;
         }
-
         .info {
-            color: #fb6340; 
+            color: #fb6340;
+            font-style: italic;
+            font-size: 1rem;
+            margin: 0;
         }
     </style>
 </head>
@@ -221,6 +208,7 @@ $lang = $_GET['lang'] ?? 'en';
 </html>
 <tbody>
     <tr>
+   <br>
 <?php
 date_default_timezone_set('Asia/Shanghai'); 
 $singbox_status = 0;
@@ -596,40 +584,33 @@ $logContent = readLogFile($logFile);
 $singboxLogContent = readLogFile($singBoxLogFile); 
 $singboxStartLogContent = readLogFile($singboxStartLogFile); 
 ?>
-
-<div class="container container-bg border border-3 col-12 mb-4 p-1">
-    <h2 class="text-center p-1">NekoClash Control Panel</h2>
-    <table class="table table-borderless mb-2">
+    <table class="table table-borderless  mb-2">
         <tbody>
             <tr>
-            <style>
-            .btn-group .btn {
+    <style>
+        .btn-group .btn {
             width: 100%; 
-            }
-            </style>
-                <td>Status</td>
+        }
+    </style>
+            <td>Status</td>
                 <td class="d-grid">
-                    <div class="btn-group col" role="group" aria-label="ctrl">
+                    <div class="btn-group" role="group" aria-label="ctrl">
                         <?php
-                            if ($neko_status == 1) {
-                                echo "<button type=\"button\" class=\"btn btn-success\">Mihomo is running</button>\n";
-                            } else {
-                                echo "<button type=\"button\" class=\"btn btn-outline-danger\">Mihomo is not running</button>\n";
-                            }
+                            if($neko_status==1) echo "<button type=\"button\" class=\"btn btn-success\">Mihomo Running</button>\n";
+
+                            else echo "<button type=\"button\" class=\"btn btn-outline-danger\">Mihomo Not Running</button>\n";
 
                             echo "<button type=\"button\" class=\"btn btn-deepskyblue\">$str_cfg</button>\n";
 
-                            if ($singbox_status == 1) {
-                                echo "<button type=\"button\" class=\"btn btn-success\">Sing-box is running</button>\n";
-                            } else {
-                                echo "<button type=\"button\" class=\"btn btn-outline-danger\">Sing-box is not running</button>\n";
-                            }
+                            if ($singbox_status == 1) echo "<button type=\"button\" class=\"btn btn-success\">Sing-box Running</button>\n";
+
+                            else  echo "<button type=\"button\" class=\"btn btn-outline-danger\">Sing-box Not Running</button>\n";
                         ?>
                     </div>
                 </td>
             </tr>
             <tr>
-                <td>Control</td>
+            <td>Control</td>
                 <form action="index.php" method="post">
                     <td class="d-grid">
                         <div class="btn-group col" role="group" aria-label="ctrl">
@@ -639,6 +620,7 @@ $singboxStartLogContent = readLogFile($singboxStartLogFile);
                         </div>
                     </td>
                 </form>
+
                 <form action="index.php" method="post">
                     <td class="d-grid">   
                         <select name="config_file" id="config_file" class="form-select">
@@ -649,9 +631,9 @@ $singboxStartLogContent = readLogFile($singboxStartLogFile);
                             <?php endforeach; ?>
                         </select>
                         <div class="btn-group col" role="group" aria-label="ctrl">
-                            <button type="submit" name="singbox" value="start" class="btn btn<?php if ($singbox_status == 1) echo "-outline" ?>-info <?php if ($singbox_status == 1) echo "disabled" ?> d-grid">Enable Sing-box</button>
-                            <button type="submit" name="singbox" value="disable" class="btn btn<?php if ($singbox_status == 0) echo "-outline" ?>-danger <?php if ($singbox_status == 0) echo "disabled" ?> d-grid">Disable Sing-box</button>
-                            <button type="submit" name="singbox" value="restart" class="btn btn<?php if ($singbox_status == 0) echo "-outline" ?>-warning <?php if ($singbox_status == 0) echo "disabled" ?> d-grid">Restart Sing-box</button>
+                            <button type="submit" name="singbox" value="start" class="btn btn<?php echo ($singbox_status == 1) ? "-outline" : "" ?>-info <?php echo ($singbox_status == 1) ? "disabled" : "" ?> d-grid">Enable Sing-box</button>
+                            <button type="submit" name="singbox" value="disable" class="btn btn<?php echo ($singbox_status == 0) ? "-outline" : "" ?>-danger <?php echo ($singbox_status == 0) ? "disabled" : "" ?> d-grid">Disable Sing-box</button>
+                            <button type="submit" name="singbox" value="restart" class="btn btn<?php echo ($singbox_status == 0) ? "-outline" : "" ?>-warning <?php echo ($singbox_status == 0) ? "disabled" : "" ?> d-grid">Restart Sing-box</button>
                         </div>
                     </td>
                 </form>
@@ -659,20 +641,20 @@ $singboxStartLogContent = readLogFile($singboxStartLogFile);
             <tr>
                 <td>Running Mode</td>
                 <td class="d-grid">
-                     <?php
-                     $mode_placeholder = '';
-                     if ($neko_status == 1) {
-                         $mode_placeholder = $neko_cfg['echanced'] . " | " . $neko_cfg['mode'];
-                     } elseif ($singbox_status == 1) {
-                         $mode_placeholder = "Rule Mode";
-                     } else {
-                         $mode_placeholder = "Not running";
-                     }
-                     ?>
-            <input class="form-control text-center" name="mode" type="text" placeholder="<?php echo $mode_placeholder; ?>" disabled>
-        </td>
-    </tr>
-</tbody>
+                    <?php
+                    $mode_placeholder = '';
+                    if ($neko_status == 1) {
+                        $mode_placeholder = $neko_cfg['echanced'] . " | " . $neko_cfg['mode'];
+                    } elseif ($singbox_status == 1) {
+                        $mode_placeholder = "Rule Mode";
+                    } else {
+                        $mode_placeholder = "Not Running";
+                    }
+                    ?>
+                    <input class="form-control text-center" name="mode" type="text" placeholder="<?php echo $mode_placeholder; ?>" disabled>
+                </td>
+            </tr>
+       </tbody>
     </table>
    <h2 class="text-center p-2" >System Information</h2>
     <table class="table table-borderless mb-2">
@@ -704,21 +686,22 @@ $singboxStartLogContent = readLogFile($singboxStartLogFile);
         </tbody>
     </table>
   <br>
-<div class="container container-bg  rounded-4 col-12 mb-4">
 
-    <table class="table table-borderless mb-0">
+<div style="border: 1px solid black; padding: 10px; text-align: center;">
+    <table style="width: 100%;">
         <tbody>
-            <tr class="text-center">
-               <td class="col-2">D-Total</td>
-               <td class="col-2">U-Total</td>
+            <tr>
+                <td style="width: 50%;">D-Total</td>
+                <td style="width: 50%;">U-Total</td>
             </tr>
-            <tr class="text-center">
-                <td class="col-2"><class id="downtotal">-</class></td>
-                <td class="col-2"><class id="uptotal">-</class></td>
+            <tr>
+                <td><span id="downtotal">-</span></td>
+                <td><span id="uptotal">-</span></td>
             </tr>
         </tbody>
     </table>
- </div>
+</div>
+
 <!DOCTYPE html>
 <html lang="zh">
 <head>
@@ -847,7 +830,7 @@ $singboxStartLogContent = readLogFile($singboxStartLogFile);
     </style>
 </head>
 <body>
-<div class="container container-bg border border-3 rounded-4 col-12 mb-4">
+   <div class="container rounded-4 col-12 mb-4">
         <h2 class="text-center p-2">Logs</h2>
         <div class="d-flex flex-wrap">
             <div class="log-section">
